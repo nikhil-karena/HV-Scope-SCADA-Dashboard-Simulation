@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renewable Energy SCADA</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="top-bar">
+        <h1>RENEWABLE ASSET MONITORING</h1>
+        <div class="time-panel">
+            <span id="timestamp">System Initializing...</span>
+        </div>
+    </header>
+
+    <main class="dashboard-grid">
+        <section class="card">
+            <h2>Wind Turbine (WT1)</h2>
+            <div class="data-row">
+                <span>Active Power</span>
+                <span class="value"><span id="wind-power">0.00</span> MW</span>
+            </div>
+            <div class="data-row">
+                <span>Generator Voltage</span>
+                <span class="value"><span id="wind-voltage">0.00</span> kV</span>
+            </div>
+            <div class="status-indicator" id="wind-status">OK</div>
+        </section>
+
+        <section class="card">
+            <h2>System Topology (SLD)</h2>
+            <div class="schematic-container">
+                <img src="sld2.png" alt="Wind Farm SLD">
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Substation Controls</h2>
+            <div class="data-row">
+                <span>POI Voltage</span>
+                <span class="value"><span id="sub-voltage">0.00</span> kV</span>
+            </div>
+            <div class="data-row breaker-row">
+                <span>Grid Breaker (CB1)</span>
+                <button id="breaker1-btn" class="btn-on">CLOSED (ON)</button>
+            </div>
+            <div class="data-row breaker-row">
+                <span>Array Breaker (CB2)</span>
+                <button id="breaker2-btn" class="btn-on">CLOSED (ON)</button>
+            </div>
+            <div class="status-indicator" id="sub-status">OK</div>
+        </section>
+
+        <section class="card chart-card">
+            <h2>WT1 Active Power Trend (MW)</h2>
+            <canvas id="powerChart"></canvas>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
